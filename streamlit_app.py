@@ -7,12 +7,16 @@ from io import BytesIO
 from utils.llm import call_llm_api
 from utils.prompt import format_prompt
 
-# Hide the hamburger menu and Deploy button
+# Hide the hamburger menu, Deploy button, and sidebar close button
 hide_streamlit_style = """
 <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
+/* Hide the sidebar close button (X) */
+[data-testid="stSidebarCollapseButton"] {
+    display: none;
+}
 </style>
 """
 
@@ -97,7 +101,9 @@ def main():
         if uploaded_file is not None and uploaded_file.size > 2 * 1024 * 1024:  # 2MB in bytes
             st.error("Error: The uploaded file exceeds the 2MB size limit. Please upload a smaller file.")
             uploaded_file = None
-        run_analysis = st.button("Run Analysis", type="primary", use_container_width=True)
+            
+    # Move the Run Analysis button here, outside the sidebar but before the main content
+    run_analysis = st.sidebar.button("Run Analysis", type="primary", use_container_width=True)
 
     # --- Main area: Results ---
     st.subheader("Analysis Results")
