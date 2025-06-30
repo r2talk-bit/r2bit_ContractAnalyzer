@@ -81,6 +81,7 @@ def main():
 
     # --- Layout: Sidebar for input, main for output ---
     with st.sidebar:
+        st.image("assets/r2bit1.png")  # Original size
         st.header("Instructions")
         instructions = st.text_area(
             "Describe what you want the AI to analyze:",
