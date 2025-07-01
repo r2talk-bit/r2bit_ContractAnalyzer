@@ -17,6 +17,15 @@ header {visibility: hidden;}
 [data-testid="stSidebarCollapseButton"] {
     display: none;
 }
+/* Change primary button color to blue */
+.stButton>button:first-child {
+    background-color: #1E88E5;
+    border-color: #1E88E5;
+}
+.stButton>button:first-child:hover {
+    background-color: #1565C0;
+    border-color: #1565C0;
+}
 </style>
 """
 
@@ -85,10 +94,9 @@ def main():
 
     # --- Layout: Sidebar for input, main for output ---
     with st.sidebar:
-        st.image("assets/r2bit1.png")  # Original size
         st.header("Instructions")
         instructions = st.text_area(
-            "Describe what you want the AI to analyze:",
+            "Additional guidelines for generation:",
             value="Please analyze this contract and provide a detailed breakdown of key terms, obligations, and notable clauses.",
             height=120
         )
@@ -105,7 +113,20 @@ def main():
     # Move the Run Analysis button here, outside the sidebar but before the main content
     run_analysis = st.sidebar.button("Run Analysis", type="primary", use_container_width=True)
 
-    # --- Main area: Results ---
+    # --- Main area: Instructions and Results ---
+    st.subheader("How to Use the Contract Analyzer")
+    st.markdown("""
+    Follow these steps to analyze your contract:
+    
+    1. **Upload your contract** - Use the file uploader in the sidebar to select a PDF contract (max 2MB)
+    2. **Customize instructions** - Modify the analysis guidelines in the sidebar if needed
+    3. **Run the analysis** - Click the "Run Analysis" button to process your document
+    4. **Review results** - The AI-generated analysis will appear in the results section below
+    5. **Iterate if needed** - You can upload different contracts or modify instructions for new analyses
+    
+    The analyzer works best with clearly formatted legal documents and provides insights on key terms, obligations, and potential issues.
+    """)
+    
     st.subheader("Analysis Results")
 
     if "llm_response" not in st.session_state:
