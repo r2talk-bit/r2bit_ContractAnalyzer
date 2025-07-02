@@ -263,7 +263,7 @@ def main():
                         # Call the AI model to analyze the contract
                         response = call_llm_api(
                             prompt=prompt,
-                            model="gpt-4",      # Using GPT-4 for high-quality analysis
+                            model="gpt-4o",      # Using GPT-4 for high-quality analysis
                             temperature=0.0,    # 0.0 means more deterministic/factual responses
                             max_tokens=2000     # Limit response length to 2000 tokens
                         )
@@ -289,15 +289,4 @@ def main():
 # --- Application Entry Point ---
 
 if __name__ == "__main__":
-    """
-    This is the standard Python way to define the entry point of a program.
-    When you run this file directly (e.g., with 'streamlit run streamlit_app.py'),
-    this condition will be true and the main() function will be called.
-    
-    If this file is imported by another Python file, this condition will be false,
-    and the main() function won't automatically run.
-    
-    For beginners: This is a common Python pattern that allows a file to be both
-    a standalone program and a module that can be imported by other programs.
-    """
     main()  # Call the main function to start the application

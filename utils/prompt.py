@@ -3,67 +3,87 @@ from typing import Dict, Any, Optional
 # Dictionary of prompt templates for different analysis types
 PROMPT_TEMPLATES = {
     "Avaliação de Contrato de Compra e Venda de Imóveis": """
-       
-       {instructions}
+    
+       Você é um renomado advogado especialista em direito imobiliário brasileiro, com profundo conhecimento da legislação vigente, da jurisprudência atual e das melhores práticas contratuais do mercado imobiliário nacional.
 
-       Você é um especialista em direito imobiliário brasileiro e legislação vigente. 
-       Realize uma análise detalhada do seguinte contrato de compra e venda de imóvel, considerando as boas práticas do direito imobiliário brasileiro e a legislação vigente.
-       O resultado da sua avaliação será utilizado para esclarecer dúvidas e fornecer recomendações práticas para compradores e vendedores no contrato. Seja didático.
+       Sua missão é realizar uma análise detalhada, crítica e didática do contrato de compra e venda de imóvel apresentado a seguir. A análise deve resultar em um relatório estruturado, que contemple:
 
-       As boas práticas em contratos de compra e venda de imóveis e os itens essenciais do direito imobiliário e contratual que devem ser respeitados incluem os seguintes pontos fundamentais:
+       1. **Verificação da conformidade e completude do contrato**  
+       Avalie se o contrato contempla todas as cláusulas essenciais e recomendadas, incluindo:  
+       - Identificação completa e precisa das partes (nome, CPF, RG, estado civil, endereço e contatos)  
+       - Descrição detalhada e alinhada com a matrícula do imóvel (endereço, matrícula, área, confrontações, características físicas)  
+       - Valor total, forma de pagamento, prazos, condições para entrada, parcelas, juros, multas e correções monetárias  
+       - Prazos e condições para entrega da posse e das chaves  
+       - Cláusulas claras sobre rescisão, penalidades e consequências do inadimplemento  
+       - Garantias oferecidas pelo vendedor, incluindo inexistência de ônus, dívidas, ações judiciais e responsabilidades por vícios ou defeitos  
+       - Responsabilidades quanto a custos, impostos, taxas e despesas de transferência  
+       - Procedimentos para formalização, reconhecimento de firma e registro no Cartório de Registro de Imóveis  
+       - Due diligence prévia recomendada (verificação de certidões negativas, matrícula atualizada, existência de ônus e ações judiciais)  
+       - Cláusulas especiais aplicáveis, como pacto de melhor comprador, retrovenda, venda a contento e direito de preferência (preempção)  
+       - Definição do foro para eventuais disputas judiciais  
+       - Forma de assinatura (presencial, digital, testemunhas) e segurança jurídica associada  
+       - Transparência, clareza e ausência de ambiguidades, evitando brechas que possam gerar litígios futuros  
 
-       1. Identificação completa das partes
-       O contrato deve conter os dados pessoais completos do comprador e do vendedor, como nome, CPF, RG, estado civil, endereço e, se possível, contatos atualizados. Essa qualificação é essencial para evitar dúvidas futuras e garantir segurança jurídica.
-       2. Descrição detalhada do imóvel
-       É imprescindível descrever com precisão o imóvel objeto da venda, incluindo endereço, número da matrícula no Cartório de Registro de Imóveis, área construída, área total do terreno, características específicas e limites. A descrição deve estar alinhada com a matrícula para evitar conflitos.
-       3. Preço e condições de pagamento
-       O contrato deve estipular claramente o valor total da negociação, detalhar se haverá entrada, o número de parcelas, datas de vencimento, forma de pagamento (à vista, financiamento, etc.) e incluir taxas e juros, se houver. Também é importante prever cláusulas que tratem do inadimplemento, como multas e juros de mora.
-       4. Prazos e condições para entrega do imóvel
-       Definir a data e as condições para a entrega das chaves e posse do imóvel é fundamental para evitar conflitos posteriores entre as partes.
-       5. Cláusulas de rescisão e penalidades
-       O contrato deve prever o que acontece em caso de cancelamento, inadimplência ou descumprimento de qualquer cláusula, estabelecendo penalidades claras para garantir o cumprimento do acordo.
-       6. Garantias e responsabilidades
-       É necessário estipular as garantias oferecidas pelo vendedor, como a inexistência de ônus, dívidas ou ações judiciais sobre o imóvel, e as responsabilidades das partes quanto a possíveis vícios ou defeitos do imóvel.
-       7. Formalização e registro
-       Após a assinatura, o contrato deve ser levado ao cartório para reconhecimento de firma, o que confere maior segurança jurídica. A escritura pública deve ser lavrada em Cartório de Notas, especialmente em casos de imóveis de alto valor ou financiados, e o registro da escritura no Cartório de Registro de Imóveis é o ato que torna o comprador o proprietário legal do imóvel.
-       8. Due diligence prévia
-       Antes da formalização, é essencial realizar uma análise completa da documentação do imóvel, verificando certidões negativas, matrícula atualizada, existência de ônus reais e ações judiciais, para evitar fraudes e garantir a segurança da transação.
-       9. Cláusulas especiais (quando aplicáveis)
-       Podem ser incluídas cláusulas específicas como pacto de melhor comprador, retrovenda, venda a contento (condição suspensiva) e preempção (direito de preferência), que devem estar claras e, quando necessário, registradas na matrícula do imóvel.
-       10. Transparência e clareza
-       Todo o contrato deve ser redigido de forma clara, completa e sem brechas, evitando termos ambíguos que possam gerar interpretações equivocadas ou litígios futuros. O ideal é contar com o auxílio de um advogado especializado para elaboração e revisão do contrato
+       2. **Identificação e análise dos riscos**  
+       Explique os principais riscos jurídicos e financeiros para:  
+       - O comprador (ex.: riscos de ônus ocultos, falta de registro, cláusulas abusivas, prazos não cumpridos)  
+       - O vendedor (ex.: inadimplemento, rescisão unilateral, responsabilidade por vícios ocultos)  
 
-       {content}
-       
-       Inclua as seguintes informações chaves seções:
+       3. **Avaliação dos pontos fortes e pontos fracos**  
+       Liste e analise os pontos positivos e negativos do contrato para cada parte, destacando impactos práticos e jurídicos.
 
-       1. Resumo do contrato:
-          - Partes envolvidas
-          - Objeto do contrato (descrição do imóvel)
-          - Finalidade da compra e venda
-          - Principais termos e condições
-          - Datas importantes (data de assinatura, prazo para entrega, rescisão, etc.)
-          - Obrigações financeiras (preço, forma de pagamento, multas, etc.)
+       4. **Recomendações e sugestões de melhorias**  
+       Proponha ajustes específicos para proteger os interesses de comprador e vendedor, aprimorar a segurança jurídica e mitigar riscos, incluindo sugestões para cláusulas adicionais ou correções textuais.
 
-       2. Avaliação de riscos:
-          - Identifique e explique os principais riscos para o vendedor
-          - Identifique e explique os principais riscos para o comprador
+       5. **Resumo executivo final**  
+       Apresente um resumo claro e objetivo das principais conclusões e recomendações para aprimoramento do contrato.
 
-       3. Pontos fortes e pontos fracos:
-          - Liste e analise os pontos fortes para o vendedor
-          - Liste e analise os pontos fortes para o comprador
-          - Liste e analise os pontos fracos para o vendedor
-          - Liste e analise os pontos fracos para o comprador
+    ---
 
-       4. Sugestões de ajustes nas cláusulas:
-          - Recomendações específicas para proteger os interesses do vendedor
-          - Recomendações específicas para proteger os interesses do comprador
+    ### Instruções adicionais:
 
-       5. Resumo da anáilse e recomendações de melhoria do texto do contrato.
+    - Baseie sua análise na legislação imobiliária brasileira atualizada, na jurisprudência relevante e nas práticas contratuais consolidadas no mercado.  
+    - Utilize linguagem clara, técnica e didática, adequada tanto para profissionais do direito quanto para partes interessadas não especializadas.  
+    - Caso o texto fornecido não corresponda a um contrato válido de compra e venda de imóvel, informe explicitamente que o documento não atende aos requisitos legais e formais para tal contrato.  
 
-       Analise com base na legislação imobiliária brasileira, jurisprudência e práticas contratuais comuns no mercado imobiliário do Brasil.
- 
-       Se o texto não for de um contrato de copra e venda de imóvel, forneça uma mensagem explicando que o texto não atende aos requisitos do contrato de compra e venda de imóveis.
+    ---
+
+    ### Conteúdo para análise:
+
+    {content}
+
+    ---
+
+    ### Estrutura do relatório esperado:
+
+    1. **Resumo do contrato**  
+       - Partes envolvidas  
+       - Objeto do contrato (descrição detalhada do imóvel)  
+       - Finalidade da compra e venda  
+       - Principais termos e condições  
+       - Datas importantes (assinatura, entrega, rescisão)  
+       - Obrigações financeiras (preço, forma de pagamento, multas, juros)  
+
+    2. **Avaliação de riscos**  
+       - Riscos para o vendedor  
+       - Riscos para o comprador  
+
+    3. **Pontos fortes e pontos fracos**  
+       - Pontos fortes para o vendedor  
+       - Pontos fortes para o comprador  
+       - Pontos fracos para o vendedor  
+       - Pontos fracos para o comprador  
+
+    4. **Sugestões de ajustes nas cláusulas**  
+       - Recomendações específicas para o vendedor  
+       - Recomendações específicas para o comprador  
+
+    5. **Resumo e recomendações finais**
+
+    ---
+
+    Por favor, realize a análise detalhada conforme as instruções acima, assegurando a máxima profundidade, precisão e utilidade prática.
+
     """,
     
     "Contract Summary": """
