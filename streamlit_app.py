@@ -145,8 +145,8 @@ def main():
     # Set page config first as it must be the first Streamlit command
     # This configures the page title, icon and layout
     st.set_page_config(
-        page_title="Contract Analyzer",  # This appears in the browser tab
-        page_icon="📄",                # This emoji appears in the browser tab
+        page_title="Real Estate Purchase Agreement Evaluator",  # This appears in the browser tab
+        page_icon="🏠",                # Changed to house emoji to better represent real estate
         layout="wide"                  # Uses the full width of the browser
     )
     
@@ -173,8 +173,8 @@ def main():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
     # Set the main title and caption for the app
-    st.title("📄 Contract Analyzer")
-    st.caption("Upload a contract PDF and get an AI-powered analysis.")
+    st.title("🏠 Real Estate Purchase Agreement Evaluator")
+    st.caption("Upload a real estate purchase agreement PDF and get an AI-powered analysis.")
 
     # Load the API key and check if it exists
     api_key = load_api_key()
