@@ -218,13 +218,15 @@ def main():
     # Markdown for formatting the instructions nicely
     # Triple quotes """ allow for multi-line strings in Python
     st.markdown("""
+    1. **IMPORTANT**: This application does not work on mobile devices. A desktop or laptop is required.
+    
     Follow these steps to analyze your contract:
     
-    1. **Upload your contract** - Use the file uploader in the sidebar to select a PDF contract (max 2MB)
-    2. **Customize instructions** - Modify the analysis guidelines in the sidebar if needed
-    3. **Run the analysis** - Click the "Run Analysis" button to process your document
-    4. **Review results** - The AI-generated analysis will appear in the results section below
-    5. **Iterate if needed** - You can upload different contracts or modify instructions for new analyses
+    2. **Upload your contract** - Use the file uploader in the sidebar to select a PDF contract (max 2MB)
+    3. **Customize instructions** - Modify the analysis guidelines in the sidebar if needed
+    4. **Run the analysis** - Click the "Run Analysis" button to process your document
+    5. **Review results** - The AI-generated analysis will appear in the results section below
+    6. **Iterate if needed** - You can upload different contracts or modify instructions for new analyses
     
     The analyzer works best with clearly formatted legal documents and provides insights on key terms, obligations, and potential issues.
     """)
